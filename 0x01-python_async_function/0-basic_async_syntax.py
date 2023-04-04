@@ -5,7 +5,7 @@ import random
 
 async def wait_random(max_delay: int = 10) -> float:
     """
-    Native coroutine Async function take an integer as argument
+    Async function take an integer as argument and return a float value
     """
     wait = random.uniform(0, max_delay)
     await asyncio.sleep(wait)
