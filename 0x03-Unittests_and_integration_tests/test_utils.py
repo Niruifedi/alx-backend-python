@@ -5,6 +5,7 @@ Test utils.py
 import unittest
 from parameterized import parameterized
 access_nested_map = __import__('utils').access_nested_map
+get_json = __import__('utils').get_json
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -32,3 +33,22 @@ class TestAccessNestedMap(unittest.TestCase):
         test access nested map exception
         """
         self.assertRaises(KeyError, access_nested_map, nested_map, path)
+
+
+class TestGetJson(unittest.TestCase):
+    """
+    class TestGetJson
+    """
+    def test_get_json(self):
+        """
+        test get json
+        """
+        @parameterized.expand([
+            ["http://example.com", {"payload": True}],
+            ["http://holberton.io", {"payload": False}]
+        ])
+        def test_get_json(self, test_url, test_payload):
+            """
+            test get json
+            """
+            self.assertEqual(get_json(test_url), test_payload)
